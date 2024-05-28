@@ -1,0 +1,384 @@
+{
+    "version": "1.1.0",
+    "created": "2024-02-15T12:20:49+0100",
+    "modified": "2024-05-28T10:09:46+0100",
+    "settings": {
+        "object_detection": {
+            "estimated_size": 56,
+            "min_num_coords": 5,
+            "ms_person_left": 250
+        },
+        "motion_detection": {
+            "min_distance": 5,
+            "max_distance": 50
+        },
+        "trajectory_prediction": {
+            "min_speed": 0.5,
+            "step_size": 1.0
+        },
+        "trajectory_interpolation": {
+            "step_size": 4
+        }
+    },
+    "canvases": [
+        {
+            "id": 0,
+            "name": "Canvas",
+            "size": {
+                "width": 1500,
+                "height": 1000
+            },
+            "sensor_height": 600
+        }
+    ],
+    "outputs": [
+        {
+            "id": 0,
+            "canvas_id": 0,
+            "name": "",
+            "active": false,
+            "protocol": "NDI",
+            "framerate": 60,
+            "ndi_type": "canvas",
+            "texture_size": {
+                "width": 1920,
+                "height": 1280
+            }
+        },
+        {
+            "id": 1,
+            "canvas_id": 0,
+            "name": "People data",
+            "active": true,
+            "protocol": "OSC",
+            "ip": "127.0.0.1",
+            "port": 10000,
+            "framerate": 60,
+            "indexed_osc_address": false,
+            "data": [
+                "id",
+                "position",
+                "height",
+                "angle",
+                "size"
+            ]
+        },
+        {
+            "id": 2,
+            "canvas_id": 0,
+            "name": "Resolume commands",
+            "active": true,
+            "protocol": "OSC",
+            "ip": "127.0.0.1",
+            "port": 7000,
+            "framerate": 60,
+            "indexed_osc_address": false,
+            "data": null
+        }
+    ],
+    "triggers": [
+        {
+            "id": 0,
+            "canvas_id": 0,
+            "name": "",
+            "visible": true,
+            "enabled": true,
+            "shape": "rect",
+            "size": {
+                "width": 250,
+                "height": 250
+            },
+            "color": "#E0FF9D",
+            "position": {
+                "x": 151,
+                "y": 364
+            },
+            "command_groups": [
+                {
+                    "id": 0,
+                    "order": 0,
+                    "output": {
+                        "id": 2,
+                        "canvas_id": 0
+                    },
+                    "execution_type": "enter",
+                    "commands": [
+                        {
+                            "id": 1,
+                            "order": 0,
+                            "command": "/composition/layers/1/clips/2/connect 1",
+                            "delay": 50
+                        },
+                        {
+                            "id": 2,
+                            "order": 1,
+                            "command": "/composition/layers/1/clips/2/select",
+                            "delay": 0
+                        },
+                        {
+                            "id": 3,
+                            "order": 2,
+                            "command": "/composition/layers/1/clips/2/transport/position 0.0",
+                            "delay": 0
+                        },
+                        {
+                            "id": 4,
+                            "order": 3,
+                            "command": "/composition/layers/1/clips/2/transport/position/behaviour/playdirection 2",
+                            "delay": 0
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "order": 1,
+                    "output": {
+                        "id": 2,
+                        "canvas_id": 0
+                    },
+                    "execution_type": "exit",
+                    "commands": [
+                        {
+                            "id": 0,
+                            "order": 0,
+                            "command": "/composition/layers/1/clear 1",
+                            "delay": 0
+                        },
+                        {
+                            "id": 1,
+                            "order": 1,
+                            "command": "/composition/layers/1/clear 0",
+                            "delay": 50
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "sensors": [
+        {
+            "number": 1,
+            "settings": {
+                "mac_address": "00:00:00:00:00:00",
+                "serial": "",
+                "canvas_id": 0,
+                "visible": true,
+                "position": {
+                    "x": 323,
+                    "y": 309
+                },
+                "rotation": 0,
+                "corner_points": [
+                    {
+                        "sensor_point": {
+                            "x": -0.255856990814209,
+                            "y": -0.15950900316238403
+                        },
+                        "canvas_point": {
+                            "x": 0.016699999570846558,
+                            "y": 0.016699999570846558
+                        }
+                    },
+                    {
+                        "sensor_point": {
+                            "x": -0.2517029941082001,
+                            "y": 0.2107360064983368
+                        },
+                        "canvas_point": {
+                            "x": 0.016699999570846558,
+                            "y": 0.49000000953674316
+                        }
+                    },
+                    {
+                        "sensor_point": {
+                            "x": 0.33544600009918213,
+                            "y": -0.16167199611663818
+                        },
+                        "canvas_point": {
+                            "x": 0.47999998927116394,
+                            "y": 0.016699999570846558
+                        }
+                    },
+                    {
+                        "sensor_point": {
+                            "x": 0.312404990196228,
+                            "y": 0.21706299483776093
+                        },
+                        "canvas_point": {
+                            "x": 0.47999998927116394,
+                            "y": 0.49000000953674316
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "number": 2,
+            "settings": {
+                "mac_address": "01:00:00:00:00:00",
+                "serial": "",
+                "canvas_id": 0,
+                "visible": true,
+                "position": {
+                    "x": 1177,
+                    "y": 309
+                },
+                "rotation": 0,
+                "corner_points": [
+                    {
+                        "sensor_point": {
+                            "x": -0.255856990814209,
+                            "y": -0.15950900316238403
+                        },
+                        "canvas_point": {
+                            "x": 0.47999998927116394,
+                            "y": 0.016699999570846558
+                        }
+                    },
+                    {
+                        "sensor_point": {
+                            "x": -0.2517029941082001,
+                            "y": 0.2107360064983368
+                        },
+                        "canvas_point": {
+                            "x": 0.47999998927116394,
+                            "y": 0.49000000953674316
+                        }
+                    },
+                    {
+                        "sensor_point": {
+                            "x": 0.33544600009918213,
+                            "y": -0.16167199611663818
+                        },
+                        "canvas_point": {
+                            "x": 0.9829999804496765,
+                            "y": 0.016699999570846558
+                        }
+                    },
+                    {
+                        "sensor_point": {
+                            "x": 0.312404990196228,
+                            "y": 0.21706299483776093
+                        },
+                        "canvas_point": {
+                            "x": 0.9829999804496765,
+                            "y": 0.49000000953674316
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "number": 3,
+            "settings": {
+                "mac_address": "02:00:00:00:00:00",
+                "serial": "",
+                "canvas_id": 0,
+                "visible": true,
+                "position": {
+                    "x": 323,
+                    "y": 690
+                },
+                "rotation": 0,
+                "corner_points": [
+                    {
+                        "sensor_point": {
+                            "x": -0.255856990814209,
+                            "y": -0.15950900316238403
+                        },
+                        "canvas_point": {
+                            "x": 0.016699999570846558,
+                            "y": 0.49000000953674316
+                        }
+                    },
+                    {
+                        "sensor_point": {
+                            "x": -0.2517029941082001,
+                            "y": 0.2107360064983368
+                        },
+                        "canvas_point": {
+                            "x": 0.016699999570846558,
+                            "y": 0.9829999804496765
+                        }
+                    },
+                    {
+                        "sensor_point": {
+                            "x": 0.33544600009918213,
+                            "y": -0.16167199611663818
+                        },
+                        "canvas_point": {
+                            "x": 0.47999998927116394,
+                            "y": 0.49000000953674316
+                        }
+                    },
+                    {
+                        "sensor_point": {
+                            "x": 0.312404990196228,
+                            "y": 0.21706299483776093
+                        },
+                        "canvas_point": {
+                            "x": 0.47999998927116394,
+                            "y": 0.9829999804496765
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "number": 4,
+            "settings": {
+                "mac_address": "03:00:00:00:00:00",
+                "serial": "",
+                "canvas_id": 0,
+                "visible": true,
+                "position": {
+                    "x": 1177,
+                    "y": 690
+                },
+                "rotation": 0,
+                "corner_points": [
+                    {
+                        "sensor_point": {
+                            "x": -0.255856990814209,
+                            "y": -0.15950900316238403
+                        },
+                        "canvas_point": {
+                            "x": 0.47999998927116394,
+                            "y": 0.49000000953674316
+                        }
+                    },
+                    {
+                        "sensor_point": {
+                            "x": -0.2517029941082001,
+                            "y": 0.2107360064983368
+                        },
+                        "canvas_point": {
+                            "x": 0.47999998927116394,
+                            "y": 0.9829999804496765
+                        }
+                    },
+                    {
+                        "sensor_point": {
+                            "x": 0.33544600009918213,
+                            "y": -0.16167199611663818
+                        },
+                        "canvas_point": {
+                            "x": 0.9829999804496765,
+                            "y": 0.49000000953674316
+                        }
+                    },
+                    {
+                        "sensor_point": {
+                            "x": 0.312404990196228,
+                            "y": 0.21706299483776093
+                        },
+                        "canvas_point": {
+                            "x": 0.9829999804496765,
+                            "y": 0.9829999804496765
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
