@@ -160,7 +160,7 @@
             "number": 1,
             "settings": {
                 "mac_address": "00:00:00:00:00:00",
-                "serial": "",
+                "serial": "#00000000",
                 "canvas_id": 0,
                 "visible": true,
                 "position": {
@@ -216,7 +216,7 @@
             "number": 2,
             "settings": {
                 "mac_address": "01:00:00:00:00:00",
-                "serial": "",
+                "serial": "#00000001",
                 "canvas_id": 0,
                 "visible": true,
                 "position": {
@@ -272,7 +272,7 @@
             "number": 3,
             "settings": {
                 "mac_address": "02:00:00:00:00:00",
-                "serial": "",
+                "serial": "#00000002",
                 "canvas_id": 0,
                 "visible": true,
                 "position": {
@@ -328,7 +328,7 @@
             "number": 4,
             "settings": {
                 "mac_address": "03:00:00:00:00:00",
-                "serial": "",
+                "serial": "#00000003",
                 "canvas_id": 0,
                 "visible": true,
                 "position": {
